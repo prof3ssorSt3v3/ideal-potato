@@ -1,5 +1,13 @@
+const initialData = [
+  { id: crypto.randomUUID(), text: 'Eat' },
+  { id: crypto.randomUUID(), text: 'Sleep' },
+  { id: crypto.randomUUID(), text: 'Code' },
+  { id: crypto.randomUUID(), text: 'Repeat' },
+];
+
 (() => {
   document.querySelector('form').addEventListener('submit', addItem);
+  buildInitialList(initialData);
 })();
 
 function addItem(ev) {
@@ -10,8 +18,10 @@ function addItem(ev) {
   createTodo(item);
 }
 
-function createTodo(item) {
+function createTodo(item, id = null) {
   let todo = document.createElement('todo-item');
+  id = id ?? crypto.randomUUID(); //if id is null build one
+  todo.setAttribute('data-ref', id);
   todo.setAttribute('text', item);
   todo.setAttribute('complete', false);
   document.querySelector('.todos').append(todo);
@@ -21,5 +31,11 @@ function createTodo(item) {
     let textOfRemoved = ev.detail.text;
     console.log(textOfRemoved, 'was removed from the page');
     //do whatever you want with the value that was removed
+  });
+}
+
+function buildInitialList(data) {
+  data.forEach((entry) => {
+    createTodo(entry.text, entry.id);
   });
 }

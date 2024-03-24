@@ -14,7 +14,7 @@ export class TodoItem extends LitElement {
       margin: 0.5rem 0;
       padding: 0.5rem;
       border: 1px solid hsl(var(--todoHue), 40%, 40%);
-      box-shadow: 2px 2px 8px hsla(0, 0%, 0%, 0.32);
+      box-shadow: 2px 2px 8px hsla(0, 0%, 0%, 0.16);
     }
 
     .todo input[type='checkbox'] {
