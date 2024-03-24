@@ -102,7 +102,7 @@ export class TodoItem extends LitElement {
   _removeTodo(ev) {
     let removeEvent = new CustomEvent('removedtodo', { detail: { text: this.text } });
     this.dispatchEvent(removeEvent);
-    ev.target.closest('.todo').remove();
+    this.remove();
   }
 
   render() {
