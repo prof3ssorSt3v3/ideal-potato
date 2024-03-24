@@ -113,6 +113,8 @@ export class TodoItem extends LitElement {
         <span @click="${this._removeTodo}"><i></i></span>
       </div>
     `;
+    //alternatively to the SVG in the CSS as the background image,
+    //you can replace the <i> with an <svg> element
   }
 }
 
