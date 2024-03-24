@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  font-family: Raleway, sans-serif;
+}
+
+html {
+  font-size: calc(5px + 1vw);
+  --todoHue: 240;
+  /* Optionally set color variables here */
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+header {
+  background-color: hsl(var(--todoHue), 40%, 40%);
+  padding: 1rem 2rem;
+}
+h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 0;
+  color: white;
+}
+form {
+  background-color: hsl(var(--todoHue), 40%, 70%);
+}
+form,
+section {
+  padding: 1rem 2rem;
+}
+label,
+input,
+button {
+  font-size: 1.5rem;
+  padding: 0.25rem 1rem;
+  margin: 0.25rem 1rem 0.25rem 0;
+}
+
+todo-item {
+  --todoHue: 300;
+  /* Optionally set color variables here */
+}
