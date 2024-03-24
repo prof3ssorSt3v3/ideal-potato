@@ -67,7 +67,19 @@ export class TodoItem extends LitElement {
 
   static properties = {
     text: { type: String },
-    complete: { type: Boolean },
+    complete: {
+      type: Boolean,
+      converter: {
+        //alternative to connectedCallback
+        fromAttribute: (value) => {
+          if (value == 'true') {
+            return true;
+          } else {
+            return false;
+          }
+        },
+      },
+    },
   };
 
   constructor() {
@@ -77,9 +89,10 @@ export class TodoItem extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     //once the HTML is ready and added
-    if (this.hasAttribute('complete')) {
-      this.complete = this.getAttribute('complete') === 'true';
-    }
+    //this is the alternative to the `converter` inside the static properties
+    // if (this.hasAttribute('complete')) {
+    //   this.complete = this.getAttribute('complete') === 'true';
+    // }
   }
 
   _onCompleteToggle() {

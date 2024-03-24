@@ -23,7 +23,8 @@ function createTodo(item, id = null) {
   id = id ?? crypto.randomUUID(); //if id is null build one
   todo.setAttribute('data-ref', id);
   todo.setAttribute('text', item);
-  todo.setAttribute('complete', false);
+  //set a random true or false for completed
+  todo.setAttribute('complete', Boolean(Math.round(Math.random())));
   document.querySelector('.todos').append(todo);
 
   //optional event listener
