@@ -78,6 +78,13 @@ export class TodoItem extends LitElement {
             return false;
           }
         },
+        toAttribute: (value) => {
+          if (value === true) {
+            return 'true';
+          } else {
+            return 'false';
+          }
+        },
       },
     },
   };
@@ -109,7 +116,7 @@ export class TodoItem extends LitElement {
     return html`
       <div class="todo">
         <input type="checkbox" @change="${this._onCompleteToggle}" ?checked=${this.complete} />
-        <p class="${this.complete ? 'complete' : ''}" @click="${this._onCompleteToggle}">&nbsp;${this.text}&nbsp;</p>
+        <p class="${this.complete ? 'complete' : ''}">&nbsp;${this.text}&nbsp;</p>
         <span @click="${this._removeTodo}"><i></i></span>
       </div>
     `;
