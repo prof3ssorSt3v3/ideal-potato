@@ -20,11 +20,12 @@ function addItem(ev) {
 
 function createTodo(item, id = null) {
   let todo = document.createElement('todo-item');
+  let complete = id === null ? false : Boolean(Math.round(Math.random()));
   id = id ?? crypto.randomUUID(); //if id is null build one
   todo.setAttribute('data-ref', id);
   todo.setAttribute('text', item);
   //set a random true or false for completed
-  todo.setAttribute('complete', Boolean(Math.round(Math.random())));
+  todo.setAttribute('complete', complete);
   document.querySelector('.todos').append(todo);
 
   //optional event listener
